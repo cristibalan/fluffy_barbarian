@@ -2,31 +2,34 @@ require File.join(File.dirname(__FILE__), "test_helper")
 
 describe "FluffyBarbarian::Index, parsing" do
   [
-    ["# Mmm pie\n  2009 10 01, 2010 04 12\n  tags:   brazil,   sao paulo",
+    ["# Mmm pie\n  2009 10 01, 2010 04 12\n  tags:   brazil,   sao paulo\n  categories: food",
       [
         { :title => "Mmm pie", :autoslug => "mmm-pie", :slug => "mmm-pie",
           :url => "/2009/10/01/mmm-pie",
           :happened_on => "2009-10-01", :written_on => "2010-04-12",
-          :tags => ["brazil", "sao paulo"] }
+          :tags => ["brazil", "sao paulo"],
+          :categories => ["food"] }
       ]
     ],
 
-    ["#    Mmm more pie\n  2009 10 15   \n  pie:   brazil, sao paulo   \nslug: moar-pie",
+    ["#    Mmm more pie\n  2009 10 15   \n  pie:   brazil, sao paulo   \nslug: moar-pie\n  categories: food, moar",
       [
         { :title => "Mmm more pie", :autoslug => "mmm-more-pie", :slug => "moar-pie",
           :url => "/2009/10/15/moar-pie",
           :happened_on => "2009-10-15", :written_on => "2009-10-15",
+          :categories => ["food", "moar"],
           :pie => "brazil, sao paulo" }
       ]
     ],
 
-    ["# Mmm pie\n  2009 10     01, 2010    04 12\n  tags:   brazil,   sao paulo\n\n" +
+    ["# Mmm pie\n  2009 10     01, 2010    04 12\n  tags:   sao paulo\n  categories: no way, jose\n" +
      "#    Mmm more pie\n  2009 10 15   \n  pie: brazil       , sao       paulo",
       [
         { :title => "Mmm pie", :slug => "mmm-pie", :autoslug => "mmm-pie",
           :url => "/2009/10/01/mmm-pie",
           :happened_on => "2009-10-01", :written_on => "2010-04-12",
-          :tags => ["brazil", "sao paulo"] },
+          :tags => ["sao paulo"],
+          :categories => ["no way", "jose"]},
 
         { :title => "Mmm more pie", :slug => "mmm-more-pie", :autoslug => "mmm-more-pie",
           :url => "/2009/10/15/mmm-more-pie",

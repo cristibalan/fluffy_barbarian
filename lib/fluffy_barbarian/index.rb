@@ -104,7 +104,7 @@ module FluffyBarbarian
             parts = line.split(":").tidy
             key = parts[0].to_sym
             case key
-            when :tags
+            when :tags, :categories
               meta[key] = parts[1].split(",").tidy
             when :location
               # can be
