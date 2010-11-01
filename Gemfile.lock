@@ -1,0 +1,40 @@
+PATH
+  remote: .
+  specs:
+    fluffy_barbarian (0.0.1)
+      RedCloth
+      activesupport
+      haml
+      i18n
+      rack
+      rdiscount
+      tilt
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    RedCloth (4.2.3)
+    activesupport (3.0.1)
+    haml (3.0.23)
+    i18n (0.4.1)
+    rack (1.2.1)
+    rake (0.8.7)
+    rdiscount (1.6.5)
+    test-spec (0.10.0)
+    tilt (1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  RedCloth
+  activesupport
+  bundler
+  fluffy_barbarian!
+  haml
+  i18n
+  rack
+  rake
+  rdiscount
+  test-spec
+  tilt
