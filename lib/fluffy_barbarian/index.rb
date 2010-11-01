@@ -101,7 +101,7 @@ module FluffyBarbarian
             meta[:happened_on] = dates[0]
             meta[:written_on]  = dates[1] || meta[:happened_on]
           else
-            parts = line.split(":").tidy
+            parts = line.split(":", 2).tidy
             key = parts[0].to_sym
             case key
             when :tags, :categories
